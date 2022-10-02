@@ -19,11 +19,9 @@ pipeline {
     }
     stage ('Apply resources') {
       when {
-        //FIX-ME
         branch 'main'
       }
       steps {
-        //FIX-ME
         // ignore delete errors caused by templates deleted by previous runs
         sh 'oc apply -k samples'
         sh 'oc delete -f delete --wait || true'
@@ -31,7 +29,6 @@ pipeline {
     }
     stage ('Verify deleted templates') {
       when {
-        //FIX-ME
         branch 'main'
       }
       steps {
